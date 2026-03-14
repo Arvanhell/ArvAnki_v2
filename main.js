@@ -214,7 +214,7 @@ const syncSystem = () => {
   const name = $('user-input').value.trim();
   if (name) {
     currentUser = name;
-    $('display-name').innerHTML = `<span style="font-size: 0.7rem; opacity: 0,7;">PILOT:</span> ${currentUser}`;
+    $('display-name').innerHTML = `<span style="font-size: 0.7rem; opacity: 0,7;">:</span> ${currentUser}`;
     deck = JSON.parse(localStorage.getItem(`deck_${currentUser}`)) || [];
     $('user-input').value = '';
     $('quest-input').focus();
