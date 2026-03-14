@@ -1,0 +1,31 @@
+# --- ARV ANKI V2 FILTER ---
+
+# System files (Śmieci systemowe)
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Environment & Credentials (KLUCZOWE: chronimy Twoją tożsamość)
+.env
+.env.local
+.env.*
+credentials.json
+*.pem
+*.key
+
+# Logs & Temp (Szum maszynowy)
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.cache/
+tmp/
+
+# Editor Settings (Twoje lokalne ustawienia, nie dla świata)
+.vscode/
+.idea/
+.replit
+.history/
+
+# Data (Jeśli trzymasz lokalne backupy decków w plikach)
+backup_*.json
+old_versions/
