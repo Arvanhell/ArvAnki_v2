@@ -300,8 +300,7 @@ document.addEventListener('DOMContentLoaded', () => {
   showNextDueCard();
   renderSectorFilters(); 
   console.log('--- Anki ARV V2.0: MULTI-DIMENSIONAL SYSTEM ACTIVE ---');
-  console.log('Status: Spark stable. Sector maped. Pilot Ready')
-    ');
+  console.log('Status: Spark stable. Sector maped. Pilot Ready');
 });
 
 // Surgical inspection in history
