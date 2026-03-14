@@ -96,6 +96,17 @@
       white-space: nowrap;
   }
   
+/*Display name */
+#display-name {
+  color: #00f3ff; /* Twój Neon Blue */
+  text-shadow: 0 0 10px rgba(0, 243, 255, 0.7);
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-bottom: 1px solid var(--neon-blue);
+}
+
+
   input {
     background: #0d1117;
     border: 1px solid #30363d;

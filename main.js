@@ -214,13 +214,16 @@ const syncSystem = () => {
   const name = $('user-input').value.trim();
   if (name) {
     currentUser = name;
-    $('display-name').innerText = currentUser;
+    $('display-name').innerHTML = `<span style="font-size: 0.7rem; opacity: 0,7;">PILOT:</span> ${currentUser}`;
     deck = JSON.parse(localStorage.getItem(`deck_${currentUser}`)) || [];
     $('user-input').value = '';
     $('quest-input').focus();
     updateStats();
     showNextDueCard();
-  } else { alert('Identify yourself, Pilot'); }
+    console.log(`System: Identity confirmed. Welcome, ${currentUser}.`);
+    } else { 
+        alert('Identify yourself, Pilot'); 
+    }
 };
 
 const exportDeck = () => {
