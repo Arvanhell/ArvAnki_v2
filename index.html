@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anki ARV v 1.2</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+     <header>
+      <h1>ANKI ARV <span style="font-size: 0.8rem; vertical-align: middle; color: var(--neon-blue); border: 1px solid var(--neon-blue); padding: 2px 5px; border-radius: 3px; margin-left: 10px;">V2.0</span></h1>
+
+       <section class="user-profile">
+         <section class="stats">
+           <p>Cards in deck: <span id="total-cards"></span></p>
+         </section>
+         <input type="text" id="user-input" placeholder="Pilot Name...">
+         <button id="login-btn">Sync System</button>
+         <h3>Active Pilot: <span id="display-name">Guest</span></h3>
+       </section>
+     </header>
+     
+     <main>
+       <section id="admin-panel">
+         <input type="text" id="quest-input" placeholder="Enter Question...">
+         <input type="text" id="ans-input" placeholder="Enter Answer...">
+         <input type="text" id="sector-input" placeholder="Pilot Sector... (Enter your Data Dimension)">
+         <button id= "add-btn">Add to Deck</button>
+       </section>
+       
+      <hr>
+
+      <div class="dimension-gate">
+        <small style="color: var(--neon-blue); font-size: 0.7rem; letter-spacing: 1px;">ACTIVE SECTOR:</small>
+        <nav id="sector-nav">
+          </nav>
+        
+        <button id="delete-sector-btn" title="Neutralize this dimension">ERASE</button>
+      </div>
+      
+
+      <hr>
+
+       <article class="card">
+         <button id="delete-btn" style="display:none;">🗑</button>
+         
+         <h2 id="question-text">Sync system to start...</h2>
+         <div id="answer-text" style="display:none"></div>
+       </article>
+     </main>
+       
+
+    <footer>
+      <div id="repetition-controls" style="display:none">
+        <button id="hard-btn">Hard (1d)</button>
+        <button id="good-btn">Good (3d)</button>
+        <button id="easy-btn">Easy (7d)</button>
+        <button id="omega-btn" class="omega">Alpha & Omega</button>
+      </div>
+
+      <button id="show-answer">Show Answer</button>
+
+      <hr style="margin: 20px 0; border: 0; border-top: 1px dashed #30363d;">
+
+      <section id="system-tools">
+        <button id="export-btn" title="Save deck to file">💾 Export</button>
+        <input type="file" id="import-input" style="display:none">
+        <button id="import-btn" title="Load deck from file">📥 Import</button>
+      </section>
+
+      <div id="star-gate-container" style="padding: 20px 0; border-top: 1px solid #222;">
+        <button id="star-gate-btn" onclick="openInspector()">
+          — STAR GATE —
+        </button>
+        <div id="archive-list"></div>
+      </div>
+    </footer>
+
+     <script src="main.js"></script>
+  </body>
+</html>

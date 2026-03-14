@@ -1,0 +1,327 @@
+/* --- 1. FUNDAMENTY (ZMIENNE) --- */
+:root {
+    --bg-color: #0d1117;
+    --text-color: #c9d1d9;
+    --neon-blue: #58a6ff;
+    --neon-green: #2ea043;
+    --danger: #f85149;
+    --border-radius: 8px;
+  }
+  
+  /* --- 2. STRUKTURA BAZOWA --- */
+  * { box-sizing: border-box; }
+  
+  body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 10px;
+    overflow-x: hidden;
+  }
+  
+  header {
+    text-align: center;
+    padding: 20px;
+    border-bottom: 2px solid var(--neon-blue);
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  /* --- 3. PROFIL PILOTA (SYNC) --- */
+  .user-profile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+  }
+  
+  #login-btn {
+    width: auto;               /* Pozwala bramom ogrodu się rozszerzyć */
+    min-width: 45px;           /* Ale nie mniejszy niż kwadrat */
+    height: 45px;
+    padding: 0 15px;           /* Daje oddech napisowi po bokach */
+    background: transparent;
+    color: var(--neon-blue);
+    border: 1px solid var(--neon-blue);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;        /* Nieco mniejsza czcionka, by była smuklejsza */
+    white-space: nowrap;       /* Zakaz łamania tekstu na dwie linie */
+    transition: 0.3s;
+  }
+  
+  
+  #login-btn:hover {
+    background: rgba(88, 166, 255, 0.1);
+    box-shadow: 0 0 10px var(--neon-blue);
+  }
+  
+  /* --- 4. ADMIN PANEL & INPUTS --- */
+  main {
+    width: 100%;
+    max-width: 600px;
+  }
+  
+  #admin-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: #161b22;
+    padding: 20px;
+    border-radius: var(--border-radius);
+    border: 1px solid #30363d;
+  }
+  
+  /* Koniec autostrady dla stonogi - skracamy pole pilota */
+  #user-input {
+      width: 140px !important; /* Sztywna, krótka granica */
+      flex: none !important;    /* Zakaz rozciągania się */
+      margin-right: 10px;
+  }
+  
+  /* Upewnienie się, że napis "Active Pilot" nie ucieka niżej */
+  .user-profile h3 {
+      margin: 0;
+      font-size: 0.9rem;
+      white-space: nowrap;
+  }
+  
+  input {
+    background: #0d1117;
+    border: 1px solid #30363d;
+    color: white;
+    padding: 12px;
+    border-radius: 4px;
+    width: 100%;
+  }
+  
+  #add-btn {
+    background-color: var(--neon-green);
+    color: white;
+    border: none;
+    padding: 12px;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 4px;
+    transition: 0.3s;
+  }
+  
+  /* --- 5. KARTA --- */
+  .card {
+    position: relative; /* FUNDAMENT DLA KOSZA */
+    margin-top: 30px;
+    padding: 40px;
+    background: #161b22;
+    border: 2px solid var(--neon-blue);
+    box-shadow: 0 0 15px rgba(88, 166, 255, 0.2);
+    border-radius: var(--border-radius);
+    text-align: center;
+  }
+  
+  #question-text {
+    color: var(--text-color);
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin-bottom: 20px;
+  }
+  
+  #answer-text {
+    color: var(--neon-green);
+    font-size: 1.3rem;
+    padding: 10px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+  
+  /* --- 6. KOSZ (SMUKŁY AGENT) --- */
+  #delete-btn {
+    position: absolute;
+    top: -15px;         /* Wystaje lekko ponad górną krawędź karty */
+    right: -15px;       /* Wystaje lekko poza prawą krawędź karty */
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: var(--bg-color); /* Tło jak strona, żeby się odcinał */
+    color: var(--danger);
+    border: 2px solid var(--danger);
+    display: none;       /* Startowo ukryty, JS go włączy */
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 999;        /* Nad wszystkimi innymi elementami */
+    font-size: 1.4rem;
+    box-shadow: 0 0 15px rgba(248, 81, 73, 0.4);
+    transition: 0.3s ease;
+  }
+  
+  #delete-btn:hover {
+    background: var(--danger);
+    color: white;
+    transform: scale(1.1);
+  }
+  
+  
+  /* ---- 7. STOPKA I KONTROLA ----- */
+  footer {
+    width: 100%;
+    max-width: 600px;
+    margin-top: 30px;
+    padding-bottom: 40px;
+    text-align: center;
+  }
+  
+  #repetition-controls {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+  
+  #repetition-controls button {
+    flex: 1;
+    min-width: 80px;
+    padding: 10px;
+    background: #21262d;
+    color: var(--text-color);
+    border: 1px solid #30363d;
+    border-radius: 4px;
+  }
+  
+  #show-answer {
+    width: 100%;
+    padding: 15px;
+    background: transparent;
+    color: var(--neon-blue);
+    border: 2px solid var(--neon-blue);
+    border-radius: var(--border-radius);
+    font-size: 1.1rem;
+    font-weight: bold;
+  }
+  
+  .omega {
+    background: var(--danger) !important;
+    color: white !important;
+    box-shadow: 0 0 10px var(--danger);
+  }
+  
+  #system-tools {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  #system-tools button {
+    background: #161b22;
+    border: 1px solid #30363d;
+    font-size: 0.8rem;
+    padding: 5px 15px;
+  }
+  
+  /* --- 8. MOBILNOŚĆ (BEZ PLACKÓW) --- */
+  @media (max-width: 768px) {
+    .card { padding: 25px; }
+    #question-text { font-size: 1.2rem; }
+    #repetition-controls button { flex: 1 1 45%; }
+  }
+  
+  /* Archive star gate btn */
+  #star-gate-btn {
+    background: transparent;
+    color: var(--neon-blue);
+    border: 1px solid var(--neon-blue);
+    padding: 12px 25px;
+    font-family: 'Orbitron', monospace; /* Jeśli używasz, jeśli nie - zostanie standardowy */
+    font-size: 0.9rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(0, 243, 255, 0.2);
+    margin: 10px auto;
+    display: block;
+  }
+  
+  #star-gate-btn:hover {
+    background: var(--neon-blue);
+    color: #000;
+    box-shadow: 0 0 20px var(--neon-blue);
+    transform: scale(1.05);
+  }
+  
+  #archive-list {
+    max-height: 350px;
+    overflow-y: auto;
+    margin-top: 20px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--neon-blue) transparent;
+  }
+  
+  /* Style for  scroll Chrome/Safari */
+  #archive-list::-webkit-scrollbar {
+    width: 5px;
+  }
+  #archive-list::-webkit-scrollbar-thumb {
+    background: var(--neon-blue);
+    border-radius: 10px;
+  }
+  
+  /* Style for Delete section */
+  #sector-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 10px 0;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    border: 1px solid #333;
+  }
+  
+  .sector-btn {
+    background: transparent;
+    color: #888;
+    border: 1px solid #444;
+    padding: 4px 10px;
+    font-size: 0.7rem;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .active-sector-btn {
+    background: var(--neon-blue); /* Użyj swojego koloru neonowego */
+    color: #000;
+    border: 1px solid var(--neon-blue);
+    box-shadow: 0 0 10px var(--neon-blue);
+    font-weight: bold;
+  }
+  
+  #delete-sector-btn {
+    background: transparent;
+    color: #ff4444;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    opacity: 0.5;
+    display: block; 
+    margin: 20px auto;
+    width: fit-content; 
+  }
+  
+  #delete-sector-btn:hover {
+    opacity: 1;
+  }
+  
